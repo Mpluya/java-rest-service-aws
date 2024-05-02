@@ -1,11 +1,11 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: java-rest-service-azure
+  name: java-rest-service-aws
   namespace: mae
   labels:
     apps.tanzu.vmware.com/workload-type: web
-    app.kubernetes.io/part-of: java-rest-service-azure
+    app.kubernetes.io/part-of: java-rest-service-aws
     backstage.io/kubernetes-id: customer-profile
     apis.apps.tanzu.vmware.com/register-api: "true"
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
@@ -37,11 +37,9 @@ spec:
         owner: customer-relations-department-azure
         system: profile-management-azure
         description: Manage customer profiles
-    - name: gitops_ssh_secret
-      value: tenant-gitops-ssh
   source:
     git:
-      url: ssh://git@github.com/Mpluya/java-rest-service-azure
+      url: https://git@github.com/Mpluya/java-rest-service-aws.git
       ref:
         branch: main
   serviceClaims:
